@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Videos {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+type UsersProfile {
+  bio String
+}
+
+model categories {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  v    Int    @map("__v")
+  name String
+}
+
+model posts {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int      @map("__v")
+  author     String   @db.ObjectId
+  categories String[] @db.ObjectId
+  content    String
+  published  Boolean
+  title      String
+}
+
+model users {
+  id      String        @id @default(auto()) @map("_id") @db.ObjectId
+  v       Int           @map("__v")
+  email   String        @unique(map: "email_1")
+  name    String
+  profile UsersProfile?
+}
