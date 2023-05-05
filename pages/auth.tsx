@@ -1,7 +1,7 @@
 import Input from '@/components/Input'
 import React, { useCallback, useState } from 'react'
 
-const auth = () => {
+const Auth = () => {
   const [email,setEmail]=useState('');
   const [name,setName]=useState('');
   const [password,setPassword]=useState('')
@@ -40,4 +40,4 @@ const auth = () => {
   )
 }
 
-export default auth
+export default Auth
