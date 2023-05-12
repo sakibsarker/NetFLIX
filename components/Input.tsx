@@ -13,9 +13,9 @@ const Input:React.FC<InputProps> = ({id,onChange,value,lable,type}) => {
   return (
     <div className="relative">
        <input id={id} value={value}  type={type} onChange={onChange}
-       className="block rounded-sm px-3 pt-2 pb-1 w-full text-md text-white bg-neutral-500 appearance-none focus:outline-none focus:ring-0 peer"
-    placeholder="" />
-    <label className="absolute text-sm text-zinc-300 duration-150 transform -translate-y-2 scale-75 top-4 z-10 origin-[0] left-3 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-3 peer-focus:scale-75 peer-focus:-translate-y-5" htmlFor={id}>
+       className="block rounded-sm px-6 pt-4 pb-1 w-full text-md text-white bg-neutral-500 appearance-none focus:outline-none focus:ring-0 peer invalid:border-b-1"
+    placeholder=" " />
+    <label htmlFor={id} className="absolute text-sm text-zinc-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-3 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-5" >
       {lable}
     </label>
     </div>
