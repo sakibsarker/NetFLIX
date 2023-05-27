@@ -2,12 +2,12 @@ import Input from '@/components/Input'
 import axios from 'axios';
 import React, { useCallback, useState } from 'react'
 import {signIn} from "next-auth/react"
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import {FcGoogle} from 'react-icons/fc'
 import {FaGithub} from 'react-icons/fa'
 
 const Auth = () => {
-  const router=useRouter();
+  // const router=useRouter();
   const [email,setEmail]=useState('');
   const [name,setName]=useState('');
   const [password,setPassword]=useState('')
@@ -23,15 +23,15 @@ const Auth = () => {
       await signIn('credentials',{
         email,
         password,
-        redirect:false,
-        callbackUrl:'/'
+        // redirect:false,
+        callbackUrl:'/profiles'
       })
-      router.push('/')
+      // router.push('/profiles')
 
     }catch(error){
       console.log(error)
     }
-  },[email,password,router])
+  },[email,password])
 
   const register=useCallback(async ()=>{
     try{
@@ -70,8 +70,8 @@ const Auth = () => {
               </div>
               <button onClick={variant==='login'?login:register} className="bg-red-600 text-white rounded-md pt-1 pb-1 mt-5 w-full hover:bg-red-700 transition text-sm "> {variant==='login'?'Login':'Sign up'}</button>
               <div className="h-full w-full flex flex-row justify-center mt-5 gap-3">
-                <div onClick={()=>signIn('google',{callbackUrl:'/'})} className=" h-10 w-10 bg-white rounded-3xl items-center flex justify-center hover:bg-slate-300"><FcGoogle size={25}/></div>
-                <div onClick={()=>signIn('github',{callbackUrl:'/'})} className=" h-10 w-10 bg-white rounded-3xl items-center flex justify-center hover:bg-slate-300"><FaGithub size={25}/></div>
+                <div onClick={()=>signIn('google',{callbackUrl:'/profiles'})} className=" h-10 w-10 bg-white rounded-3xl items-center flex justify-center hover:bg-slate-300"><FcGoogle size={25}/></div>
+                <div onClick={()=>signIn('github',{callbackUrl:'/profiles'})} className=" h-10 w-10 bg-white rounded-3xl items-center flex justify-center hover:bg-slate-300"><FaGithub size={25}/></div>
               </div>
               <p className=" text-neutral-400 text-sm mt-6 "> {variant==='login'?'First time using Netflix?':'You have already account?'} <span onClick={toggleVariant} className="text-white hover:underline cursor-pointer ml-1"> {variant==='login'?'Create an account':'Login'}</span></p>
             </div>
