@@ -1,8 +1,8 @@
 {
     "build": {
-      "scripts": {
-        "postinstall": "prisma generate"
-      }
+      "commands": [
+        { "command": "prisma generate" }
+      ]
     }
   }
   
