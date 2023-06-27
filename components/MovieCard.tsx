@@ -53,10 +53,15 @@ const MovieCard:React.FC<MovieCardProps> = ({ data }) => {
             <div className="cursor-pointer w-6 h-6 lg:w-10 lg:h-10 bg-white rounded-full flex justify-center items-center transition hover:bg-neutral-300">
             <h1>hi</h1>
             </div>
-            <div>
-              hi
-            </div>
-           
+           <div className="flex flex-col">
+           <p className="text-green-400 font-semibold">New <span className="text-white">2023</span></p>
+           <div className="flex flex-row gap-2 items-center">
+            <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>
+           </div>
+           <div className="flex flex-row items-center">
+            <p className="text-white text-[10px] lg:text-sm">{data.genre}</p>
+           </div>
+           </div>
             <div className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
             <h2>hello</h2>
             </div>
